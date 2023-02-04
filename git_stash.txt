@@ -1,0 +1,69 @@
+03:16 PM 13-10-2022
+git stash:
+
+store safety in a hidden place.
+
+git repo -> local dir -> git stash -> stash -> git stash pop 
+-> local dir -> stash changes apply to local dir -> git push
+
+Cmd's :
+
+$ git stash - to stash the modified files
+
+$ git stash save <msg> - stash saves with cmts
+
+$ git stash list - to list saved stashs
+
+$ git stash apply - to apply the stash to local repo
+	$ git stash apply <sID> - we can apply with stash id
+		to local.
+$ git stash show - to see the changes in files before/after 
+			stash.
+	$ git stash show -p - shows file and contents in files.
+					(same as "git diff")
+
+$ git stash pop - similar to apply but it deletes the stash from
+			after it is applied.
+
+$ git stash drop - deletes the stash from queue
+	$ git stash drop <stash id>
+
+$ git stash clear - deletes all the stashs
+
+$ git stash branch <branch name> - to stash into another branch.
+			(to avoid conflicts while merge)
+
+
+------------------------------------------
+Stashing untrached file:
+Example::::
+$ script.js
+
+$ git status
+On branch main
+Changes to be committed:
+
+    new file:   style.css
+
+Changes not staged for commit:
+
+    modified:   index.html
+
+Untracked files:
+
+    script.js
+
+$ git stash
+Saved working directory and index state WIP on main: 5002d47 our new homepage
+HEAD is now at 5002d47 our new homepage
+
+$ git status
+On branch main
+Untracked files:
+
+    script.js
+
+**adding - u -> also stash untracked files.
+------------------------------------------------
+
+
